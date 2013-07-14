@@ -4,8 +4,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = new Silex\Application(); 
 
-$app->get('/', function() use ($app) { 
+$app['mustache'] = $app->share(function() {
+	return new \Mustache_Engine;
+});
 
+$app->get('/', function() use ($app) { 
+	echo $app['mustache']->render('Hello {{planet}}', array('planet' => 'World!'));
 }); 
 
 $app->run(); 
