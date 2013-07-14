@@ -12,32 +12,44 @@ foreach ($config as $key => $value)
 	$app[$key] = $value;
 }
 
-$app['db'] = $app->share(function() use ($app) {
-	return new \PDO(
-		'mysql:host=' . $app['db_host'] . ';dbname=' . $app['db_name'],
-		$app['db_user'],
-		$app['db_pass']
-	);
+//Load database stuff
+require_once __DIR__ . '/../db.php'; 
+
+$app['twitter'] = $app->share(function() use ($app){
+  return new ZendService\Twitter\Twitter(array(
+    'accessToken' => array(
+      'token' => $app['twitter_access_token'],
+      'secret' => $app['twitter_access_secret'],
+    ),
+    'oauth_options' => array(
+        'username' => $app['twitter_username'],
+        'consumerKey' => $app['twitter_consumerkey'],
+        'consumerSecret' => $app['twitter_consumersecret'],
+    ),
+    'http_client_options' => array(
+	'adapter' => '\Zend\Http\Client\Adapter\Curl',
+    ),
+    
+  ));
 });
+echo "<!--";
+$response = $app['twitter']->search->tweets('#saints');
+$responses = $response->toValue()->statuses;
+foreach ($responses as $index => $item) {
+  print_r($item);
+}
+echo "-->";
+
 
 $app['mustache'] = $app->share(function() {
 	return new \Mustache_Engine(array(
-		'loader' => new \Mustache_Loader_FilesystemLoader(__DIR__ . '/../templates', array('extension' => 'tpl')),
+		'loader' => new \Mustache_Loader_FilesystemLoader(__DIR__ . '/templates', array('extension' => 'mustache')),
 	));
 });
 
-$app->get('/{cat}', function() use (Application $app, Request $request, $cat) {
-
-	$hastags = array(
-		'sports' => 'nolastaints',
-		'food' => '#nolafood',
-		'community' => '#nola',
-		'music' => '#nolamusic',
-		'festivals' => '#mardigras',
-		);
-
-	$template = $app['mustache']->loadTemplate('test');
-	return $template->render(array('planet' => 'World'));
+$app->get('/', function() use ($app) {
+	$template = $app['mustache']->loadTemplate('tweet');
+	return $template->render();
 });
 
 $app->run();
