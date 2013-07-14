@@ -82,7 +82,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
                                    <link rel="shortcut icon" href="/assets/bootstrap/ico/favicon.png">
   </head>
 
-  <body class="page-<?php echo $param ?>">
+  <body>
 
     <div class="container">
       <div class='row'>
@@ -95,12 +95,12 @@ $twitter =  new ZendService\Twitter\Twitter(array(
     <div class="container">
       <div class="row">
         <ul class='nav nav-tabs'>
-          <li><a href='/index.php?c=home'>Home</a>
-            <li><a href='/index.php?c=food'>Food</a>
-            <li><a href='/index.php?c=sports'>Sports</a>
-            <li><a href='/index.php?c=music'>Music</a>
-            <li><a href='/index.php?c=festivals'>Festivals</a>
-            <li><a href='/index.php?c=community'>Community</a>
+          <li><a href='/index2.php?c=home'>Home</a>
+            <li><a href='/index2.php?c=food'>Food</a>
+            <li><a href='/index2.php?c=sports'>Sports</a>
+            <li><a href='/index2.php?c=music'>Music</a>
+            <li><a href='/index2.php?c=festivals'>Festivals</a>
+            <li><a href='/index2.php?c=community'>Community</a>
         </li>
       </ul>
     </div>
@@ -109,9 +109,10 @@ $twitter =  new ZendService\Twitter\Twitter(array(
       <div class="row">
 
         <div class="tweets">
-
+        <?php $x = 0; ?>
         <?php foreach ($responses as $index => $tweet) { ?>
-        <div class="tweet span4 <?php echo $param ?>">
+
+        <div class="tweet span4 <?php if($x == 0){ print "alpha"; } ?><?php if($x == 3){ print "omega"; } ?>">
           <a href="https://twitter.com/{{account}}">
             <img src="<?php echo $tweet->user->profile_image_url ?>">
             <span class="full-name"><?php echo $tweet->user->name ?></span>
@@ -120,12 +121,12 @@ $twitter =  new ZendService\Twitter\Twitter(array(
           <p class="message"><?php echo $tweet->text ?></p>
           <div class="date"><?php echo date('m/d/Y H:i:s', strtotime($tweet->user->created_at)) ?></div>
           <ul class="tweet-actions">
-            <li><a href="https://twitter.com/intent/tweet?in_reply_to=<? echo $tweet->id ?>" title="Reply">Reply</a></li>
-            <li><a href="https://twitter.com/intent/retweet?tweet_id=<? echo $tweet->id ?>" title="Retweet">Retweet</a></li>
-            <li><a href="https://twitter.com/intent/favorite?tweet_id=<? echo $tweet->id ?>" title="Favorite">Favorite</a></li>
+            <li><a href="https://twitter.com/intent/tweet?in_reply_to={{id}}" title="Reply">Reply</a></li>
+            <li><a href="https://twitter.com/intent/retweet?tweet_id={{id}}" title="Retweet">Retweet</a></li>
+            <li><a href="https://twitter.com/intent/favorite?tweet_id={{id}}" title="Favorite">Favorite</a></li>
           </ul>
         </div>
-
+      <?php if($x == 3){ $x = 0; } ?>
       <?php } ?>
 
         </div>
