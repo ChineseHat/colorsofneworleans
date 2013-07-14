@@ -95,12 +95,12 @@ $twitter =  new ZendService\Twitter\Twitter(array(
     <div class="container">
       <div class="row">
         <ul class='nav nav-tabs'>
-          <li><a href='/index.php?c=home'>Home</a>
-            <li><a href='/index.php?c=food'>Food</a>
-            <li><a href='/index.php?c=sports'>Sports</a>
-            <li><a href='/index.php?c=music'>Music</a>
-            <li><a href='/index.php?c=festivals'>Festivals</a>
-            <li><a href='/index.php?c=community'>Community</a>
+          <li><a href='/index.php?c=home' style="">Home</a>
+            <li><a href='/index.php?c=food' style="background-color: #be220b; color: white;">Food</a>
+            <li><a href='/index.php?c=sports' style="background-color: #977a36; color: white;">Sports</a>
+            <li><a href='/index.php?c=music' style="background-color: #0096b3; color: white;">Music</a>
+            <li><a href='/index.php?c=festivals' style="background-color: #690380; color: white;">Festivals</a>
+            <li><a href='/index.php?c=community' style="background-color: #f7941d; color: white;">Community</a>
         </li>
       </ul>
     </div>
