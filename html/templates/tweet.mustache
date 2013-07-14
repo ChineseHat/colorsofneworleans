@@ -53,28 +53,23 @@
     <div class="container">
       <div class="row">
 
-
-        <div class="tweets">
         	{{#items}}
-    			<blockquote class="tweet span4">
-					<a href="https://twitter.com/{{account}}">
-						<img src="{{pic}}">
-						<span class="full-name">{{fullname}}</span>
-						<span class="account-name">{{account}}</span>
-					</a>
+    			<div class="tweet span4">
+  					<a href="https://twitter.com/{{account}}">
+  						<img src="{{pic}}" />
+  						<span class="full-name">{{fullname}}</span>
+  						<span class="account-name">{{account}}</span>
+  					</a>
   			    <p class="message">{{message}}</p>
   			    <div class="date">{{date}}</div>
-  			    <div>
-  			    	<ul class="tweet-actions">
-  			    		<li><a href="https://twitter.com/intent/tweet?in_reply_to={{id}}" title="Reply">Reply</a></li>
-  			    		<li><a href="https://twitter.com/intent/retweet?tweet_id={{id}}" title="Retweet">Retweet</a></li>
-  			    		<li><a href="https://twitter.com/intent/favorite?tweet_id={{id}}" title="Favorite">Favorite</a></li>
-  			    	</ul>
-  			    </div>
-    			</blockquote>
+			    	<ul class="tweet-actions">
+			    		<li><a href="https://twitter.com/intent/tweet?in_reply_to={{id}}" title="Reply">Reply</a></li>
+			    		<li><a href="https://twitter.com/intent/retweet?tweet_id={{id}}" title="Retweet">Retweet</a></li>
+			    		<li><a href="https://twitter.com/intent/favorite?tweet_id={{id}}" title="Favorite">Favorite</a></li>
+			    	</ul>
+    			</div>
     			{{/items}}
 
-        </div>
 
         <hr>
 
