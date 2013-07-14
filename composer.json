@@ -2,6 +2,7 @@
 	"require": {
 		"silex/silex": "1.1.0",
 		"zendframework/zendservice-twitter": "2.1.0",
-		"mustache/mustache": "2.3.1"
+		"mustache/mustache": "2.3.1",
+        "twitter/bootstrap": "2.3.*"
 	}
 }
