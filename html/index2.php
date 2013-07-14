@@ -31,6 +31,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
   ));
 ?>
 <?php
+
   $tags = array(
     'home' => '#nola',
     'food' => '#nolafood',
