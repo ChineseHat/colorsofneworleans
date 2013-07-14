@@ -115,7 +115,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
         <?php
             $tags = array();
             foreach ($tweet->entities->hashtags as $tag) {
-                $tags[] = $tag->text;
+                $tags[] = strtolower($tag->text);
             }
         ?>
 
