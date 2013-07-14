@@ -9,7 +9,7 @@ $app['mustache'] = $app->share(function() {
 });
 
 $app->get('/', function() use ($app) { 
-	echo $app['mustache']->render('Hello {{planet}}', array('planet' => 'World!'));
+	return $app['mustache']->render('Hello {{planet}}', array('planet' => 'World!'));
 }); 
 
 $app->run(); 
