@@ -10,7 +10,14 @@ $app['db'] = $app->share(function () use ($app) {
 
 function addTweet ($row) {
     global $app;
-    
+    //Add hashtags
+    if (isset($row->entities->hashtags)) {
+        foreach ($row->entities->hashtags as $tag) {
+            $hashtagSql = "INSERT INTO hashtags VALUES (NULL, '{$tag->text}')";
+print ($hashtagSql . "\n");
+            $app['db']->exec($hashtagSql);
+        }
+    }
 }
 
 function getTweets () {
