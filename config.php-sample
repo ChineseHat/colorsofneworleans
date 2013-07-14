@@ -5,4 +5,10 @@ return array(
 	'db_name' => '',
 	'db_user' => '',
 	'db_pass' => '',
+	'twitter_access_token' => '',
+	'twitter_access_secret' => '',
+	'twitter_username' => '',
+	'twitter_consumerkey' => '',
+	'twitter_consumersecret' => '',
+
 );
