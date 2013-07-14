@@ -12,13 +12,8 @@ foreach ($config as $key => $value)
 	$app[$key] = $value;
 }
 
-$app['db'] = $app->share(function() use ($app) {
-	return new \PDO(
-		'mysql:host=' . $app['db_host'] . ';dbname=' . $app['db_name'],
-		$app['db_user'],
-		$app['db_pass']
-	);
-});
+//Load database stuff
+require_once __DIR__ . '/../db.php'; 
 
 $app['twitter'] = $app->share(function() use ($app){
   return new ZendService\Twitter\Twitter(array(
