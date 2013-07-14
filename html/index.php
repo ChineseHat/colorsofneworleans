@@ -126,7 +126,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
             <li><a href="https://twitter.com/intent/favorite?tweet_id=<? echo $tweet->id ?>" title="Favorite">Favorite</a></li>
           </ul>
         </div>
-      <?php if($x == 3){ $x = 0; } ?>
+      <?php $x++; if($x == 3){ $x = 0; } ?>
       <?php } ?>
 
         </div>
