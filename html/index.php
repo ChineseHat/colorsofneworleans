@@ -121,9 +121,9 @@ $twitter =  new ZendService\Twitter\Twitter(array(
           <p class="message"><?php echo $tweet->text ?></p>
           <div class="date"><?php echo date('m/d/Y H:i:s', strtotime($tweet->user->created_at)) ?></div>
           <ul class="tweet-actions">
-            <li><a href="https://twitter.com/intent/tweet?in_reply_to={{id}}" title="Reply">Reply</a></li>
-            <li><a href="https://twitter.com/intent/retweet?tweet_id={{id}}" title="Retweet">Retweet</a></li>
-            <li><a href="https://twitter.com/intent/favorite?tweet_id={{id}}" title="Favorite">Favorite</a></li>
+            <li><a href="https://twitter.com/intent/tweet?in_reply_to=<? echo $tweet->id ?>" title="Reply">Reply</a></li>
+            <li><a href="https://twitter.com/intent/retweet?tweet_id=<? echo $tweet->id ?>" title="Retweet">Retweet</a></li>
+            <li><a href="https://twitter.com/intent/favorite?tweet_id=<? echo $tweet->id ?>" title="Favorite">Favorite</a></li>
           </ul>
         </div>
       <?php if($x == 3){ $x = 0; } ?>
