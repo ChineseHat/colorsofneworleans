@@ -39,9 +39,15 @@ $app['mustache'] = $app->share(function() {
 	));
 });
 
-$app->get('/', function() use ($app) {
-	$template = $app['mustache']->loadTemplate('tweet');
-	return $template->render();
-});
+foreach($app['hashtags'] as $hashtag) {
+  $response = $app['twitter']->search->tweets($hashtag);
+  $responses = $response->toValue()->statuses;
+  foreach ($responses as $index => $item) {
+    $app->get('/', function() use ($app) {
+    	$template = $app['mustache']->loadTemplate('item');
+    	return $template->render();
+    });    
+  }
+}
 
 $app->run();
