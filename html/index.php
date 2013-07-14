@@ -82,7 +82,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
                                    <link rel="shortcut icon" href="/assets/bootstrap/ico/favicon.png">
   </head>
 
-  <body>
+  <body class="page-<?php echo $param ?>">
 
     <div class="container">
       <div class='row'>
