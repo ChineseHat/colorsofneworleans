@@ -109,10 +109,10 @@ $twitter =  new ZendService\Twitter\Twitter(array(
       <div class="row">
 
         <div class="tweets">
-        <?php $x = 0; ?>
+
         <?php foreach ($responses as $index => $tweet) { ?>
 
-        <div class="tweet span4 <?php if($x == 0){ print "alpha"; } ?><?php if($x == 3){ print "omega"; } ?>">
+        <div class="tweet span4">
           <a href="https://twitter.com/{{account}}">
             <img src="<?php echo $tweet->user->profile_image_url ?>">
             <span class="full-name"><?php echo $tweet->user->name ?></span>
@@ -126,7 +126,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
             <li><a href="https://twitter.com/intent/favorite?tweet_id=<? echo $tweet->id ?>" title="Favorite">Favorite</a></li>
           </ul>
         </div>
-      <?php $x++; if($x == 3){ $x = 0; } ?>
+
       <?php } ?>
 
         </div>
