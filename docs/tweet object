@@ -1,0 +1,193 @@
+
+stdClass Object
+(
+    [metadata] => stdClass Object
+        (
+            [result_type] => recent
+            [iso_language_code] => en
+        )
+
+    [created_at] => Sun Jul 14 19:54:13 +0000 2013
+    [id] => 356501908237713408
+    [id_str] => 356501908237713408
+    [text] => Someone's ready for football season #NOLA #Saints #NFL http://t.co/n43ljTW6T6
+    [source] => <a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>
+    [truncated] => 
+    [in_reply_to_status_id] => 
+    [in_reply_to_status_id_str] => 
+    [in_reply_to_user_id] => 
+    [in_reply_to_user_id_str] => 
+    [in_reply_to_screen_name] => 
+    [user] => stdClass Object
+        (
+            [id] => 516256388
+            [id_str] => 516256388
+            [name] => Swisher Sweetie
+            [screen_name] => Brittybs
+            [location] => Woodbury, Minnesota
+            [description] => Life is a paradise for those who love many things with a passion.
+#ain'tnowifey
+            [url] => 
+            [entities] => stdClass Object
+                (
+                    [description] => stdClass Object
+                        (
+                            [urls] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [protected] => 
+            [followers_count] => 55
+            [friends_count] => 205
+            [listed_count] => 0
+            [created_at] => Tue Mar 06 06:26:45 +0000 2012
+            [favourites_count] => 175
+            [utc_offset] => -18000
+            [time_zone] => Eastern Time (US & Canada)
+            [geo_enabled] => 
+            [verified] => 
+            [statuses_count] => 2370
+            [lang] => en
+            [contributors_enabled] => 
+            [is_translator] => 
+            [profile_background_color] => 131516
+            [profile_background_image_url] => http://a0.twimg.com/images/themes/theme14/bg.gif
+            [profile_background_image_url_https] => https://si0.twimg.com/images/themes/theme14/bg.gif
+            [profile_background_tile] => 
+            [profile_image_url] => http://a0.twimg.com/profile_images/344513261576726341/76ec0948238e3e4f2121594c8e9fee95_normal.jpeg
+            [profile_image_url_https] => https://si0.twimg.com/profile_images/344513261576726341/76ec0948238e3e4f2121594c8e9fee95_normal.jpeg
+            [profile_banner_url] => https://pbs.twimg.com/profile_banners/516256388/1371197486
+            [profile_link_color] => 730099
+            [profile_sidebar_border_color] => FFFFFF
+            [profile_sidebar_fill_color] => DDEEF6
+            [profile_text_color] => 333333
+            [profile_use_background_image] => 1
+            [default_profile] => 
+            [default_profile_image] => 
+            [following] => 
+            [follow_request_sent] => 
+            [notifications] => 
+        )
+
+    [geo] => 
+    [coordinates] => 
+    [place] => 
+    [contributors] => 
+    [retweet_count] => 0
+    [favorite_count] => 0
+    [entities] => stdClass Object
+        (
+            [hashtags] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [text] => NOLA
+                            [indices] => Array
+                                (
+                                    [0] => 36
+                                    [1] => 41
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [text] => Saints
+                            [indices] => Array
+                                (
+                                    [0] => 42
+                                    [1] => 49
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [text] => NFL
+                            [indices] => Array
+                                (
+                                    [0] => 50
+                                    [1] => 54
+                                )
+
+                        )
+
+                )
+
+            [symbols] => Array
+                (
+                )
+
+            [urls] => Array
+                (
+                )
+
+            [user_mentions] => Array
+                (
+                )
+
+            [media] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 356501908246102018
+                            [id_str] => 356501908246102018
+                            [indices] => Array
+                                (
+                                    [0] => 55
+                                    [1] => 77
+                                )
+
+                            [media_url] => http://pbs.twimg.com/media/BPKMmMLCAAICZmw.jpg
+                            [media_url_https] => https://pbs.twimg.com/media/BPKMmMLCAAICZmw.jpg
+                            [url] => http://t.co/n43ljTW6T6
+                            [display_url] => pic.twitter.com/n43ljTW6T6
+                            [expanded_url] => http://twitter.com/Brittybs/status/356501908237713408/photo/1
+                            [type] => photo
+                            [sizes] => stdClass Object
+                                (
+                                    [medium] => stdClass Object
+                                        (
+                                            [w] => 600
+                                            [h] => 600
+                                            [resize] => fit
+                                        )
+
+                                    [thumb] => stdClass Object
+                                        (
+                                            [w] => 150
+                                            [h] => 150
+                                            [resize] => crop
+                                        )
+
+                                    [large] => stdClass Object
+                                        (
+                                            [w] => 1024
+                                            [h] => 1024
+                                            [resize] => fit
+                                        )
+
+                                    [small] => stdClass Object
+                                        (
+                                            [w] => 340
+                                            [h] => 340
+                                            [resize] => fit
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [favorited] => 
+    [retweeted] => 
+    [possibly_sensitive] => 
+    [lang] => en
+)
