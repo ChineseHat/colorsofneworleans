@@ -120,6 +120,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
         ?>
 
         <div class="tweet span4 <?php echo $param ?> <?php print implode(' ', $tags); ?>">
+          <div class='limiter'>
           <a href="https://twitter.com/{{account}}">
             <img src="<?php echo $tweet->user->profile_image_url ?>">
             <span class="full-name"><?php echo $tweet->user->name ?></span>
@@ -132,6 +133,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
             <li><a href="https://twitter.com/intent/retweet?tweet_id=<? echo $tweet->id ?>" title="Retweet">Retweet</a></li>
             <li><a href="https://twitter.com/intent/favorite?tweet_id=<? echo $tweet->id ?>" title="Favorite">Favorite</a></li>
           </ul>
+          </div>
         </div>
 
       <?php } ?>
