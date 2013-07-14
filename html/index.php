@@ -20,6 +20,29 @@ $app['db'] = $app->share(function() use ($app) {
 	);
 });
 
+$app['twitter'] = $app->share(function() use ($app){
+  return new ZendService\Twitter\Twitter(array(
+    'accessToken' => array(
+      'token' => $app['twitter_access_token'],
+      'secret' => $app['twitter_access_secret'],
+    ),
+    'oauth_options' => array(
+        'username' => $app['twitter_username'],
+        'consumerKey' => $app['twitter_consumerkey'],
+        'consumerSecret' => $app['twitter_consumersecret'],
+    ),
+    
+  ));
+});
+echo "<!--";
+$response = $app['twitter']->search->tweets('#saints');
+$responses = $response->toValue()->statuses;
+foreach ($responses as $index => $item) {
+  print_r($item);
+}
+echo "-->";
+
+
 $app['mustache'] = $app->share(function() {
 	return new \Mustache_Engine(array(
 		'loader' => new \Mustache_Loader_FilesystemLoader(__DIR__ . '/../templates', array('extension' => 'tpl')),
