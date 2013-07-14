@@ -110,6 +110,8 @@ $twitter =  new ZendService\Twitter\Twitter(array(
 
         <div class="tweets">
 
+        <?php foreach ($responses as $index => $tweet) { ?>
+
         <?php
             $tags = array();
             foreach ($tweet->entities->hashtags as $tag) {
@@ -117,7 +119,6 @@ $twitter =  new ZendService\Twitter\Twitter(array(
             }
         ?>
 
-        <?php foreach ($responses as $index => $tweet) { ?>
         <div class="tweet span4 <?php echo $param ?> <?php print implode(' ', $tags); ?>">
           <a href="https://twitter.com/{{account}}">
             <img src="<?php echo $tweet->user->profile_image_url ?>">
