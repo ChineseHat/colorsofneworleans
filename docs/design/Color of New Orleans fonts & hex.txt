@@ -1,0 +1,16 @@
+Color of New Orleans
+Blend into NOLA
+
+website
+
+
+Fonts:
+Avenir
+
+Hex Values:
+Gold (Sports) - #977a36
+Blue (Music) - #0096b3
+Purple (Festivals) - #690380
+Red (Food) - #be220b
+Yellow (Community) - #f7941d
+

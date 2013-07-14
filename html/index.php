@@ -26,7 +26,16 @@ $app['mustache'] = $app->share(function() {
 	));
 });
 
-$app->get('/', function() use ($app) {
+$app->get('/{cat}', function() use (Application $app, Request $request, $cat) {
+
+	$hastags = array(
+		'sports' => 'nolastaints',
+		'food' => '#nolafood',
+		'community' => '#nola',
+		'music' => '#nolamusic',
+		'festivals' => '#mardigras',
+		);
+
 	$template = $app['mustache']->loadTemplate('test');
 	return $template->render(array('planet' => 'World'));
 });
