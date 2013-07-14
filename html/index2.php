@@ -96,8 +96,8 @@ $twitter =  new ZendService\Twitter\Twitter(array(
       <blockquote class="tweet">
           <a href="https://twitter.com/{{account}}">
             <img src="<?php echo $tweet->user->profile_image_url ?>">
-            <span class="full-name"><?echo $tweet->user->name ?></span>
-            <span class="account-name"><?echo $tweet->user->screename ?></span>
+            <span class="full-name"><?php echo $tweet->user->name ?></span>
+            <span class="account-name"><?php echo $tweet->user->screename ?></span>
           </a>
         </div>
           <p class="message"><?php echo $tweet->text ?></p>
