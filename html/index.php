@@ -33,21 +33,24 @@ $app['twitter'] = $app->share(function() use ($app){
   ));
 });
 
+
 $app['mustache'] = $app->share(function() {
 	return new \Mustache_Engine(array(
 		'loader' => new \Mustache_Loader_FilesystemLoader(__DIR__ . '/templates', array('extension' => 'mustache')),
 	));
 });
 
-foreach($app['hashtags'] as $hashtag) {
-  $response = $app['twitter']->search->tweets($hashtag);
+$app->get('/', function() use ($app) {
+
+  $items = array();
+  $response = $app['twitter']->search->tweets('saints');
   $responses = $response->toValue()->statuses;
   foreach ($responses as $index => $item) {
-    $app->get('/', function() use ($app) {
-    	$template = $app['mustache']->loadTemplate('item');
-    	return $template->render();
-    });    
+      $items[] = $item;
   }
-}
+
+  $template = $app['mustache']->loadTemplate('tweet');
+  return $template->render(array("items" => $items));
+});
 
 $app->run();
