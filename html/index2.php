@@ -30,7 +30,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
 
   ));
 ?>
-<?
+<?php
   $response = $twitter->search->tweets('#saints');
   $responses = $response->toValue()->statuses;
   //$tweets = array();
