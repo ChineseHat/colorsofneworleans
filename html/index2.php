@@ -30,8 +30,24 @@ $twitter =  new ZendService\Twitter\Twitter(array(
 
   ));
 ?>
-<?
-  $response = $twitter->search->tweets('#saints');
+<?php
+  $tags = array(
+    'home' => '#nola',
+    'food' => '#nolafood',
+    'sports' => '#nolasaints',
+    'festivals' => '#mardigras',
+    'music' => '#nolamusic',
+    );
+
+  $param = $_GET['c'];
+
+  if (isset($tags[$param]))
+    $category = $tags[$param];
+  else
+    $category = $tags['home'];
+
+
+  $response = $twitter->search->tweets($category);
   $responses = $response->toValue()->statuses;
   //$tweets = array();
 
@@ -79,6 +95,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
       <div class="row">
         <ul class='nav nav-tabs'>
           <li><a href='/index2.php?c=home'>Home</a>
+            <li><a href='/index2.php?c=food'>Food</a>
             <li><a href='/index2.php?c=sports'>Sports</a>
             <li><a href='/index2.php?c=music'>Music</a>
             <li><a href='/index2.php?c=festivals'>Festivals</a>
