@@ -10,6 +10,7 @@ $app['db'] = $app->share(function () use ($app) {
 
 function addTweet ($row) {
     global $app;
+    
 }
 
 function getTweets () {
