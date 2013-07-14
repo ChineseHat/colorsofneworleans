@@ -33,6 +33,7 @@ $app['twitter'] = $app->share(function() use ($app){
   ));
 });
 
+
 $app['mustache'] = $app->share(function() {
 	return new \Mustache_Engine(array(
 		'loader' => new \Mustache_Loader_FilesystemLoader(__DIR__ . '/templates', array('extension' => 'mustache')),
@@ -40,8 +41,16 @@ $app['mustache'] = $app->share(function() {
 });
 
 $app->get('/', function() use ($app) {
-	$template = $app['mustache']->loadTemplate('tweet');
-	return $template->render();
+
+  $items = array();
+  $response = $app['twitter']->search->tweets('saints');
+  $responses = $response->toValue()->statuses;
+  foreach ($responses as $index => $item) {
+      $items[] = $item;
+  }
+
+  $template = $app['mustache']->loadTemplate('tweet');
+  return $template->render(array("items" => $items));
 });
 
 $app->run();

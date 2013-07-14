@@ -31,10 +31,3 @@ $app['twitter'] = $app->share(function() use ($app){
     
   ));
 });
-
-
-$response = $app['twitter']->search->tweets('#saints');
-$responses = $response->toValue()->statuses;
-foreach ($responses as $index => $item) {
-  addTweet($item);
-}
