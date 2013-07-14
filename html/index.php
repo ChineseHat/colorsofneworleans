@@ -22,13 +22,13 @@ $app['db'] = $app->share(function() use ($app) {
 
 $app['mustache'] = $app->share(function() {
 	return new \Mustache_Engine(array(
-		'loader' => new \Mustache_Loader_FilesystemLoader(__DIR__ . '/../templates', array('extension' => 'tpl')),
+		'loader' => new \Mustache_Loader_FilesystemLoader(__DIR__ . '/templates', array('extension' => 'mustache')),
 	));
 });
 
 $app->get('/', function() use ($app) {
-	$template = $app['mustache']->loadTemplate('test');
-	return $template->render(array('planet' => 'World'));
+	$template = $app['mustache']->loadTemplate('tweet');
+	return $template->render();
 });
 
 $app->run();
