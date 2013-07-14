@@ -31,6 +31,9 @@ $app['twitter'] = $app->share(function() use ($app){
         'consumerKey' => $app['twitter_consumerkey'],
         'consumerSecret' => $app['twitter_consumersecret'],
     ),
+    'http_client_options' => array(
+	'adapter' => '\Zend\Http\Client\Adapter\Curl',
+    ),
     
   ));
 });
