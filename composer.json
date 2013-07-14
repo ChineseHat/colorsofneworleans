@@ -1,0 +1,6 @@
+{
+	"require": {
+		"silex/silex": "1.1.0",
+		"zendframework/zendservice-twitter": "2.1.0"
+	}
+}
