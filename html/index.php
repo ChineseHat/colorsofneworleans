@@ -109,25 +109,24 @@ $twitter =  new ZendService\Twitter\Twitter(array(
       <div class="row">
 
         <div class="tweets">
-          <?php foreach ($responses as $index => $tweet) { ?>
+        <?php $x = 0; ?>
+        <?php foreach ($responses as $index => $tweet) { ?>
 
-      <blockquote class="tweet">
+        <div class="tweet span4 <?php if($x == 0){ print "alpha"; } ?><?php if($x == 3){ print "omega"; } ?>">
           <a href="https://twitter.com/{{account}}">
             <img src="<?php echo $tweet->user->profile_image_url ?>">
             <span class="full-name"><?php echo $tweet->user->name ?></span>
-            <span class="account-name"><?php echo $tweet->user->screename ?></span>
+            <span class="account-name"><?php echo $tweet->user->screen_name ?></span>
           </a>
-        </div>
           <p class="message"><?php echo $tweet->text ?></p>
           <div class="date"><?php echo date('m/d/Y H:i:s', strtotime($tweet->user->created_at)) ?></div>
-          <div>
-            <ul class="tweet-actions">
-              <li><a href="https://twitter.com/intent/tweet?in_reply_to={{id}}" title="Reply">Reply</a></li>
-              <li><a href="https://twitter.com/intent/retweet?tweet_id={{id}}" title="Retweet">Retweet</a></li>
-              <li><a href="https://twitter.com/intent/favorite?tweet_id={{id}}" title="Favorite">Favorite</a></li>
-            </ul>
-          </div>
-      </blockquote>
+          <ul class="tweet-actions">
+            <li><a href="https://twitter.com/intent/tweet?in_reply_to={{id}}" title="Reply">Reply</a></li>
+            <li><a href="https://twitter.com/intent/retweet?tweet_id={{id}}" title="Retweet">Retweet</a></li>
+            <li><a href="https://twitter.com/intent/favorite?tweet_id={{id}}" title="Favorite">Favorite</a></li>
+          </ul>
+        </div>
+      <?php if($x == 3){ $x = 0; } ?>
       <?php } ?>
 
         </div>
