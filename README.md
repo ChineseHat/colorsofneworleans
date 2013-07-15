@@ -8,3 +8,8 @@
 * Install dependancies via composer.
     $ php composer.phar install
 * Perform your typical hosting environment installation steps for php applications.
+
+## Populating the database ##
+As of now, the front end serves out tweets that have been aggregated into the database. In order to populate/update the database with tweets, you need to run the cron job.
+
+$ php cron.php
