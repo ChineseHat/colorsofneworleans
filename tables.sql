@@ -85,7 +85,7 @@ CREATE TABLE `hashtags` (
 
 LOCK TABLES `hashtags` WRITE;
 /*!40000 ALTER TABLE `hashtags` DISABLE KEYS */;
-INSERT INTO `hashtags` VALUES (1,'nola','f3d38a9b3c520cdf'),(2,'nolafood','26194cfa1cb00acb'),(3,'nolasaints','bc23ac5f19e89f0f'),(4,'mardigrad','9d1f3bd1d09d39b8'),(5,'nolamusic','60e790235386c590');
+INSERT INTO `hashtags` VALUES (1,'nola','f3d38a9b3c520cdf'),(2,'nolafood','26194cfa1cb00acb'),(3,'nolasaints','bc23ac5f19e89f0f'),(4,'mardigras','9d1f3bd1d09d39b8'),(5,'nolamusic','60e790235386c590');
 /*!40000 ALTER TABLE `hashtags` ENABLE KEYS */;
 UNLOCK TABLES;
 
