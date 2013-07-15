@@ -25,7 +25,9 @@ DROP TABLE IF EXISTS `hashtags`;
 CREATE TABLE `hashtags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `hashtag` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `hashtag_md5` binary(16) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `hashtag_md5_hash` (`hashtag_md5`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -63,27 +65,26 @@ LOCK TABLES `media` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tweeters`
+-- Table structure for table `tweet_hashtags`
 --
 
-DROP TABLE IF EXISTS `tweeters`;
+DROP TABLE IF EXISTS `tweet_hashtags`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tweeters` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `profile_img` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `tweet_hashtags` (
+  `tweet_id` int(11) DEFAULT NULL,
+  `hashtag_id` int(11) DEFAULT NULL,
+  UNIQUE KEY `tweet_hashtags` (`tweet_id`,`hashtag_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tweeters`
+-- Dumping data for table `tweet_hashtags`
 --
 
-LOCK TABLES `tweeters` WRITE;
-/*!40000 ALTER TABLE `tweeters` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tweeters` ENABLE KEYS */;
+LOCK TABLES `tweet_hashtags` WRITE;
+/*!40000 ALTER TABLE `tweet_hashtags` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tweet_hashtags` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -95,10 +96,10 @@ DROP TABLE IF EXISTS `tweets`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tweets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tweet_id` int(11) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
+  `twitter_id` varchar(255) NOT NULL,
+  `user_id` bigint(11) NOT NULL,
+  `created_at` datetime NOT NULL,
   `text` text,
-  `hashtag` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -111,6 +112,32 @@ LOCK TABLES `tweets` WRITE;
 /*!40000 ALTER TABLE `tweets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tweets` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `twitter_user_id` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `screen_name` varchar(255) DEFAULT NULL,
+  `profile_image_url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -121,4 +148,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-07-14 16:01:10
+-- Dump completed on 2013-07-14 23:58:52

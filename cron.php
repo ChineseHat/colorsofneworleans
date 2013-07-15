@@ -5,7 +5,7 @@ $app = new Silex\Application(array(
 	'debug' => true
 ));
 
-$config = require __DIR__ . '/config.php';
+$config = require __DIR__ . '/config/config.php';
 foreach ($config as $key => $value)
 {
 	$app[$key] = $value;
@@ -26,8 +26,26 @@ $app['twitter'] = $app->share(function() use ($app){
         'consumerSecret' => $app['twitter_consumersecret'],
     ),
     'http_client_options' => array(
-	'adapter' => '\Zend\Http\Client\Adapter\Curl',
+        'adapter' => '\Zend\Http\Client\Adapter\Curl',
     ),
     
   ));
 });
+
+$tags = array(
+        'home' => '#nola',
+        'food' => '#nolafood',
+        'sports' => '#nolasaints',
+        'festivals' => '#mardigras',
+        'music' => '#nolamusic',
+        );
+
+
+foreach ($tags as $tag) {
+    $response = $app['twitter']->search->tweets($tag);
+    $responses = $response->toValue()->statuses;
+
+    foreach ($responses as $tweet) {
+        saveTweet($tweet);
+    }
+}
