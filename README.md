@@ -43,7 +43,7 @@ INSERT INTO hashtag_collections (collection_id, hashtag_id) VALUES(@collection_i
 
 INSERT INTO collections (name) VALUES ('Festivals');
 SET @collection_id = LAST_INSERT_ID();
-INSERT INTO hashtags (hashtag, hashtag_md5) VALUES ('nola', UNHEX(MD5('nola')));
+INSERT INTO hashtags (hashtag, hashtag_md5) VALUES ('mardigras', UNHEX(MD5('mardigras')));
 SET @hashtag_id = LAST_INSERT_ID();
 INSERT INTO hashtag_collections (collection_id, hashtag_id) VALUES(@collection_id, @hashtag_id);
 
