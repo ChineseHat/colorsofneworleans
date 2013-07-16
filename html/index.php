@@ -29,8 +29,7 @@ $twitter =  new ZendService\Twitter\Twitter(array(
     ),
 
   ));
-?>
-<?php
+
 
   $tags = array(
     'home' => '#nola',
@@ -40,7 +39,10 @@ $twitter =  new ZendService\Twitter\Twitter(array(
     'music' => '#nolamusic',
     );
 
-  $param = $_GET['c'];
+  if(isset($_GET['c']))
+    $param = $_GET['c'];
+  else
+    $param = 'home';
 
   if (isset($tags[$param]))
     $category = $tags[$param];
@@ -52,6 +54,30 @@ $twitter =  new ZendService\Twitter\Twitter(array(
   $responses = $response->toValue()->statuses;
   //$tweets = array();
 
+
+function find_category($hashtags){
+
+  $tags = array(
+    'home' => 'nola',
+    'food' => 'nolafood',
+    'sports' => 'nolasaints',
+    'festivals' => 'mardigras',
+    'music' => 'nolamusic',
+  );
+
+  $haystack = array();
+  foreach($hashtags as $hashtag){
+    $haystack[] = $hashtag->text;
+
+  }
+
+  foreach($tags as $key => $tag){
+    if(in_array($tag,$haystack)){
+      return $key;
+    }
+  }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,12 +88,8 @@ $twitter =  new ZendService\Twitter\Twitter(array(
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le styles -->
-    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    <link rel="stylesheet/less" type="text/css" href="/css/style.less" />
+    <link rel="stylesheet" href="/css/screen.css">
 
-    <script src="/javascript/less.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -75,86 +97,62 @@ $twitter =  new ZendService\Twitter\Twitter(array(
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/bootstrap/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/bootstrap/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/bootstrap/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="/assets/bootstrap/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="/assets/bootstrap/ico/favicon.png">
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-57-precomposed.png">-->
+    <!--<link rel="shortcut icon" href="/images/favicon.png">-->
   </head>
 
   <body class="page-<?php echo $param ?>">
+    <div id="page"><div class='limiter'>
 
-    <div class="container">
-      <div class='row'>
-
-        <img src="/assets/img/banner.png" />
-
-      </div>
+    <div id="header">
+      <a href='/'><img src='/img/logo.png' /></a>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <ul class='nav nav-tabs'>
-          <li><a href='/index.php?c=home' style="">Home</a>
-            <li><a href='/index.php?c=food' style="background-color: #be220b; color: white;">Food</a>
-            <li><a href='/index.php?c=sports' style="background-color: #977a36; color: white;">Sports</a>
-            <li><a href='/index.php?c=music' style="background-color: #0096b3; color: white;">Music</a>
-            <li><a href='/index.php?c=festivals' style="background-color: #690380; color: white;">Festivals</a>
-            <li><a href='/index.php?c=community' style="background-color: #f7941d; color: white;">Community</a>
-        </li>
+    <div id="menu">
+      <ul>
+        <li><a class='home' href='/index.php?c=home'>All</a></li>
+        <li><a class='food' href='/index.php?c=food'>Food</a></li>
+        <li><a class='sports' href='/index.php?c=sports'>Sports</a></li>
+        <li><a class='music' href='/index.php?c=music'>Music</a></li>
+        <li><a class='festivals' href='/index.php?c=festivals'>Festivals</a></li>
+        <li><a class='community' href='/index.php?c=community'>Community</a></li>
       </ul>
     </div>
 
-    <div class="container">
-      <div class="row">
 
-        <div class="tweets">
+    <div id="tweets">
 
-        <?php foreach ($responses as $index => $tweet) { ?>
+      <?php foreach ($responses as $index => $tweet): ?>
 
-        <?php
-            $tags = array();
-            foreach ($tweet->entities->hashtags as $tag) {
-                $tags[] = strtolower($tag->text);
-            }
-        ?>
-
-        <div class="tweet span4 <?php echo $param ?> <?php print implode(' ', $tags); ?>">
-          <div class='limiter'>
-          <a href="https://twitter.com/{{account}}">
-            <img src="<?php echo $tweet->user->profile_image_url ?>">
-            <span class="full-name"><?php echo $tweet->user->name ?></span>
-            <span class="account-name"><?php echo $tweet->user->screen_name ?></span>
-          </a>
-          <p class="message"><?php echo $tweet->text ?></p>
-          <div class="date"><?php echo date('m/d/Y H:i:s', strtotime($tweet->user->created_at)) ?></div>
-          <ul class="tweet-actions">
-            <li><a href="https://twitter.com/intent/tweet?in_reply_to=<? echo $tweet->id ?>" title="Reply">Reply</a></li>
-            <li><a href="https://twitter.com/intent/retweet?tweet_id=<? echo $tweet->id ?>" title="Retweet">Retweet</a></li>
-            <li><a href="https://twitter.com/intent/favorite?tweet_id=<? echo $tweet->id ?>" title="Favorite">Favorite</a></li>
-          </ul>
-          </div>
-        </div>
-
-      <?php } ?>
-
-        </div>
-
-        <hr>
-
-        <div class="footer">
-          <p>&copy; Company 2013</p>
-        </div>
-
+      <div class="tweet <?php print find_category($tweet->entities->hashtags); ?>">
+        <a href="https://twitter.com/{{account}}">
+          <img class='pic' src="<?php echo $tweet->user->profile_image_url ?>">
+          <span class="full-name"><?php echo $tweet->user->name ?></span>
+          <span class="account-name"><?php echo $tweet->user->screen_name ?></span>
+        </a>
+        <p class="message"><?php echo $tweet->text ?></p>
+        <div class="date"><?php echo date('m/d/Y H:i:s', strtotime($tweet->user->created_at)) ?></div>
+        <ul class="tweet-actions">
+          <li><a href="https://twitter.com/intent/tweet?in_reply_to=<? echo $tweet->id ?>" title="Reply">Reply</a></li>
+          <li><a href="https://twitter.com/intent/retweet?tweet_id=<? echo $tweet->id ?>" title="Retweet">Retweet</a></li>
+          <li><a href="https://twitter.com/intent/favorite?tweet_id=<? echo $tweet->id ?>" title="Favorite">Favorite</a></li>
+        </ul>
       </div>
-    </div> <!-- /container -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/assets/bootstrap/js/jquery.js"></script>
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/javascript/scripts.js"></script>
+      <?php endforeach; ?>
+
+    </div>
+    <div id="footer">
+      <p>&copy; Company 2013</p>
+    </div>
+
+    </div></div>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="/js/scripts.js"></script>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

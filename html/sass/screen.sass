@@ -1,0 +1,162 @@
+//////////////////////////////
+//////////////////////////////
+// Compass
+//////////////////////////////
+
+@import "compass/typography/text/replacement"
+@import "compass/utilities/lists/horizontal-list"
+@import "compass/css3/background-size"
+@import "compass/css3/columns"
+
+//////////////////////////////
+//////////////////////////////
+// 
+//////////////////////////////
+
+@import "sass-mixins/mixins"
+@import "variables"
+@import "components"
+@import "type"
+
+
+//////////////////////////////
+//////////////////////////////
+// Fonts
+//////////////////////////////
+
+@import url("http://fonts.googleapis.com/css?family=Nunito:400,700,300")
+
+
+//////////////////////////////
+//////////////////////////////
+// Grid Setup
+//////////////////////////////
+
++respond-to(mobile)
+  +grid(0)
++respond-to(tablet)
+  +grid(40px,20px,12)
++respond-to(laptop)
+  +grid(60px,20px,12)
++respond-to(desktop)
+  +grid(70px,20px,12)
+
+
+//////////////////////////////
+//////////////////////////////
+// Type
+//////////////////////////////
+
+body
+  font-family: $sans
+
+
+//////////////////////////////
+//////////////////////////////
+// Layout
+//////////////////////////////
+#page
+  background-image: url('/img/colors.png')
+  background-repeat: repeat-y
+  background-position: center
+  +background-size(100%, 100%)
+  padding: 10px 0
+  @extend %container
+  .limiter
+    background-color: #fff
+
+%header-spacing
+  +respond-to(mobile)
+    margin-top: 10px
+  +respond-to(tablet)
+    margin-top: 20px
+  +respond-to(laptop)
+    margin-top: 30px
+  +respond-to(desktop)
+    margin-top: 50px
+
+#header
+  @extend %header-spacing
+  @extend %row
+  img
+    max-width: 100%
+
+#menu
+  @extend %header-spacing
+  @extend %row
+  ul
+    +horizontal-list
+  a
+    font-size: 26px
+    +respond-to(mobile)
+      margin: 10px 2px
+      font-size: 14px
+    +respond-to(tablet)
+      margin: 10px 14px
+    +respond-to(laptop)
+      margin: 10px 34px
+    +respond-to(desktop)
+      margin: 10px 44px
+
+    &.home
+      color: $gray
+    &.food
+      color: $red
+    &.sports
+      color: $gold
+    &.music
+      color: $blue
+    &.festivals
+      color: $purple
+    &.community
+      color: $orange
+
+#tweets
+  margin-top: 20px
+  color: #fff
+  +respond-to(gte-tablet)
+    +column-count(3)
+    +column-gap(20px)
+  .tweet
+    padding: 15px
+    margin-bottom: 20px
+    +column-break-inside(avoid)
+    background-color: $gray
+    a
+      color: #fff
+    .pic
+      float: left
+    .full-name, .account-name
+      margin-left: 60px
+      display: block
+    .account-name
+      font-weight: 300
+      font-size: 14px
+      margin-top: 5px
+    .full-name
+      font-weight: 700
+    .message
+      clear: both
+      float: left
+      width: 100%
+      font-weight: 300
+    .date
+      font-weight: 12px
+    .tweet-actions
+      +horizontal-list
+      font-weight: 12px
+    &.food
+      background-color: $red
+    &.sports
+      background-color: $gold
+    &.music
+      background-color: $blue
+    &.festivals
+      background-color: $purple
+    &.community
+      background-color: $orange
+
+
+#footer
+  @extend %row
+  color: $gray
