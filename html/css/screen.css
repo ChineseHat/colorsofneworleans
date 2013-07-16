@@ -1,0 +1,471 @@
+@charset "UTF-8";
+@import url("http://fonts.googleapis.com/css?family=Nunito:400,700,300");
+/* line 17, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 116, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 53, ../sass/sass-mixins/partials/_layout.sass */
+#header, #menu, #footer {
+  clear: both;
+  display: inline-block;
+}
+
+/* line 1, ../sass/sass-mixins/partials/_type.sass */
+a {
+  text-decoration: none;
+}
+/* line 3, ../sass/sass-mixins/partials/_type.sass */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 6, ../sass/sass-mixins/partials/_type.sass */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 10px 0;
+}
+
+/* line 9, ../sass/sass-mixins/partials/_type.sass */
+h2, h1 {
+  font-size: 34px;
+  line-height: 40.8px;
+}
+
+/* line 12, ../sass/sass-mixins/partials/_type.sass */
+h3 {
+  font-size: 27.2px;
+  line-height: 34px;
+}
+
+/* line 15, ../sass/sass-mixins/partials/_type.sass */
+h4 {
+  font-size: 20.4px;
+  line-height: 27.2px;
+}
+
+/* line 18, ../sass/sass-mixins/partials/_type.sass */
+h5 {
+  font-size: 17px;
+  line-height: 23.8px;
+}
+
+/* line 21, ../sass/sass-mixins/partials/_type.sass */
+h6 {
+  font-size: 17px;
+  line-height: 23.8px;
+}
+
+/* line 25, ../sass/sass-mixins/partials/_type.sass */
+p, li {
+  font-size: 17px;
+  line-height: 23.8px;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 22, ../sass/sass-mixins/partials/_layout.sass */
+  #page {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 13, ../sass/sass-mixins/partials/_layout.sass */
+  #page:before, #page:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  /* line 17, ../sass/sass-mixins/partials/_layout.sass */
+  #page:after {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  /* line 22, ../sass/sass-mixins/partials/_layout.sass */
+  #page {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 13, ../sass/sass-mixins/partials/_layout.sass */
+  #page:before, #page:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  /* line 17, ../sass/sass-mixins/partials/_layout.sass */
+  #page:after {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 980px) and (max-width: 1199px) {
+  /* line 22, ../sass/sass-mixins/partials/_layout.sass */
+  #page {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 13, ../sass/sass-mixins/partials/_layout.sass */
+  #page:before, #page:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  /* line 17, ../sass/sass-mixins/partials/_layout.sass */
+  #page:after {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 22, ../sass/sass-mixins/partials/_layout.sass */
+  #page {
+    width: 1060px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 13, ../sass/sass-mixins/partials/_layout.sass */
+  #page:before, #page:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  /* line 17, ../sass/sass-mixins/partials/_layout.sass */
+  #page:after {
+    clear: both;
+  }
+}
+/* line 50, ../sass/screen.sass */
+body {
+  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 58, ../sass/screen.sass */
+#page {
+  background-image: url("/img/colors.png");
+  background-repeat: repeat-y;
+  background-position: center;
+  -webkit-background-size: 100%, 100%;
+  -moz-background-size: 100%, 100%;
+  -o-background-size: 100%, 100%;
+  background-size: 100%, 100%;
+  padding: 10px 0;
+}
+/* line 65, ../sass/screen.sass */
+#page .limiter {
+  background-color: white;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 68, ../sass/screen.sass */
+  #header, #menu {
+    margin-top: 10px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  /* line 68, ../sass/screen.sass */
+  #header, #menu {
+    margin-top: 20px;
+  }
+}
+@media only screen and (min-width: 980px) and (max-width: 1199px) {
+  /* line 68, ../sass/screen.sass */
+  #header, #menu {
+    margin-top: 30px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 68, ../sass/screen.sass */
+  #header, #menu {
+    margin-top: 50px;
+  }
+}
+
+/* line 81, ../sass/screen.sass */
+#header img {
+  max-width: 100%;
+}
+
+/* line 87, ../sass/screen.sass */
+#menu ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* line 13, ../sass/sass-mixins/partials/_layout.sass */
+#menu ul:before, #menu ul:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+/* line 17, ../sass/sass-mixins/partials/_layout.sass */
+#menu ul:after {
+  clear: both;
+}
+/* line 60, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#menu ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#menu ul li:first-child, #menu ul li.first {
+  padding-left: 0;
+}
+/* line 49, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#menu ul li:last-child {
+  padding-right: 0;
+}
+/* line 50, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#menu ul li.last {
+  padding-right: 0;
+}
+/* line 89, ../sass/screen.sass */
+#menu a {
+  font-size: 26px;
+}
+@media only screen and (max-width: 767px) {
+  /* line 89, ../sass/screen.sass */
+  #menu a {
+    margin: 10px 2px;
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  /* line 89, ../sass/screen.sass */
+  #menu a {
+    margin: 10px 14px;
+  }
+}
+@media only screen and (min-width: 980px) and (max-width: 1199px) {
+  /* line 89, ../sass/screen.sass */
+  #menu a {
+    margin: 10px 34px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 89, ../sass/screen.sass */
+  #menu a {
+    margin: 10px 44px;
+  }
+}
+/* line 101, ../sass/screen.sass */
+#menu a.home {
+  color: #7c8c8c;
+}
+/* line 103, ../sass/screen.sass */
+#menu a.food {
+  color: #be220b;
+}
+/* line 105, ../sass/screen.sass */
+#menu a.sports {
+  color: #977a36;
+}
+/* line 107, ../sass/screen.sass */
+#menu a.music {
+  color: #0096b3;
+}
+/* line 109, ../sass/screen.sass */
+#menu a.festivals {
+  color: #690380;
+}
+/* line 111, ../sass/screen.sass */
+#menu a.community {
+  color: #f7941d;
+}
+
+/* line 114, ../sass/screen.sass */
+#tweets {
+  margin-top: 20px;
+  color: white;
+}
+@media only screen and (min-width: 768px) {
+  /* line 114, ../sass/screen.sass */
+  #tweets {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    -ms-column-count: 3;
+    -o-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    -ms-column-gap: 20px;
+    -o-column-gap: 20px;
+    column-gap: 20px;
+  }
+}
+/* line 120, ../sass/screen.sass */
+#tweets .tweet {
+  padding: 15px;
+  margin-bottom: 20px;
+  -webkit-column-break-inside: avoid;
+  column-break-inside: avoid;
+  background-color: #7c8c8c;
+}
+/* line 125, ../sass/screen.sass */
+#tweets .tweet a {
+  color: white;
+}
+/* line 127, ../sass/screen.sass */
+#tweets .tweet .pic {
+  float: left;
+}
+/* line 129, ../sass/screen.sass */
+#tweets .tweet .full-name, #tweets .tweet .account-name {
+  margin-left: 60px;
+  display: block;
+}
+/* line 132, ../sass/screen.sass */
+#tweets .tweet .account-name {
+  font-weight: 300;
+  font-size: 14px;
+  margin-top: 5px;
+}
+/* line 136, ../sass/screen.sass */
+#tweets .tweet .full-name {
+  font-weight: 700;
+}
+/* line 138, ../sass/screen.sass */
+#tweets .tweet .message {
+  clear: both;
+  float: left;
+  width: 100%;
+  font-weight: 300;
+}
+/* line 143, ../sass/screen.sass */
+#tweets .tweet .date {
+  font-weight: 12px;
+}
+/* line 145, ../sass/screen.sass */
+#tweets .tweet .tweet-actions {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: 12px;
+}
+/* line 13, ../sass/sass-mixins/partials/_layout.sass */
+#tweets .tweet .tweet-actions:before, #tweets .tweet .tweet-actions:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+/* line 17, ../sass/sass-mixins/partials/_layout.sass */
+#tweets .tweet .tweet-actions:after {
+  clear: both;
+}
+/* line 60, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#tweets .tweet .tweet-actions li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#tweets .tweet .tweet-actions li:first-child, #tweets .tweet .tweet-actions li.first {
+  padding-left: 0;
+}
+/* line 49, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#tweets .tweet .tweet-actions li:last-child {
+  padding-right: 0;
+}
+/* line 50, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#tweets .tweet .tweet-actions li.last {
+  padding-right: 0;
+}
+/* line 148, ../sass/screen.sass */
+#tweets .tweet.food {
+  background-color: #be220b;
+}
+/* line 150, ../sass/screen.sass */
+#tweets .tweet.sports {
+  background-color: #977a36;
+}
+/* line 152, ../sass/screen.sass */
+#tweets .tweet.music {
+  background-color: #0096b3;
+}
+/* line 154, ../sass/screen.sass */
+#tweets .tweet.festivals {
+  background-color: #690380;
+}
+/* line 156, ../sass/screen.sass */
+#tweets .tweet.community {
+  background-color: #f7941d;
+}
+
+/* line 160, ../sass/screen.sass */
+#footer {
+  color: #7c8c8c;
+}
