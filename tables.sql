@@ -26,7 +26,7 @@ CREATE TABLE `collections` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,6 @@ CREATE TABLE `collections` (
 
 LOCK TABLES `collections` WRITE;
 /*!40000 ALTER TABLE `collections` DISABLE KEYS */;
-INSERT INTO `collections` VALUES (1,'Home'),(2,'Food'),(3,'Sports'),(4,'Music'),(5,'Festivals'),(6,'Community');
 /*!40000 ALTER TABLE `collections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -50,7 +49,7 @@ CREATE TABLE `hashtag_collections` (
   `collection_id` int(11) NOT NULL AUTO_INCREMENT,
   `hashtag_id` int(11) DEFAULT NULL,
   UNIQUE KEY `collection_hashtags` (`collection_id`,`hashtag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +58,6 @@ CREATE TABLE `hashtag_collections` (
 
 LOCK TABLES `hashtag_collections` WRITE;
 /*!40000 ALTER TABLE `hashtag_collections` DISABLE KEYS */;
-INSERT INTO `hashtag_collections` VALUES (1,1),(2,2),(3,3),(4,4),(5,5);
 /*!40000 ALTER TABLE `hashtag_collections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,7 +74,7 @@ CREATE TABLE `hashtags` (
   `hashtag_md5` binary(16) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `hashtag_md5_hash` (`hashtag_md5`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +83,6 @@ CREATE TABLE `hashtags` (
 
 LOCK TABLES `hashtags` WRITE;
 /*!40000 ALTER TABLE `hashtags` DISABLE KEYS */;
-INSERT INTO `hashtags` VALUES (1,'nola','f3d38a9b3c520cdf'),(2,'nolafood','26194cfa1cb00acb'),(3,'nolasaints','bc23ac5f19e89f0f'),(4,'mardigras','9d1f3bd1d09d39b8'),(5,'nolamusic','60e790235386c590');
 /*!40000 ALTER TABLE `hashtags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-07-15  1:27:28
+-- Dump completed on 2013-07-15 21:08:47

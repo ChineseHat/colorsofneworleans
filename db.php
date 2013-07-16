@@ -39,7 +39,7 @@ function saveTweet ($data) {
         $hashtagSql = "INSERT INTO hashtags VALUES (
             NULL,
             '$hashtag',
-            MD5('$hashtag')
+            UNHEX(MD5('$hashtag'))
         )";
         $app['db']->exec($hashtagSql);
         $tweetTagSql = "INSERT INTO tweet_hashtags VALUES (
