@@ -87,7 +87,7 @@ SELECT t.twitter_id
      , u.name
      , u.screen_name
      , u.profile_image_url
-     , LOWER(c.name) AS collection
+     , GROUP_CONCAT(LOWER(c.name) SEPARATOR ' ') AS collections
   FROM tweets AS t
 INNER
   JOIN users AS u
