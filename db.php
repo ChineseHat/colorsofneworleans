@@ -115,6 +115,7 @@ GROUP
      , u.profile_image_url
 ORDER
     BY t.created_at DESC
+ LIMIT 30
 ";
     $tweets = array();
     foreach ($app['db']->query($sql) as $tweet) {
