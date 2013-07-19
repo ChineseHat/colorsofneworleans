@@ -50,7 +50,7 @@ $app->get('/', function(Silex\Application $app) {
     $tweets = getTweets();
 
     $template = $app['mustache']->loadTemplate('tweet');
-    return $template->render(array("collection" => "home", "items" => $tweets));
+    return $template->render(array("collection" => "home", "items" => $tweets, "google_analytics_id" => $app['google_analytics_id']));
 });
 
 $app->run();

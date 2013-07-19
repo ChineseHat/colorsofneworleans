@@ -10,5 +10,5 @@ return array(
 	'twitter_username' => '',
 	'twitter_consumerkey' => '',
 	'twitter_consumersecret' => '',
-
+  'google_analytics_id' => '',
 );

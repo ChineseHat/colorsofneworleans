@@ -1,0 +1,3 @@
+[submodule "html/sass/sass-mixins"]
+	path = html/sass/sass-mixins
+	url = git@github.com:brianberlin/sass-mixins.git
