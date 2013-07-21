@@ -2,7 +2,7 @@
 
 $app['db'] = $app->share(function () use ($app) {
     return new PDO(
-        "mysql:dbname={$app['db_name']}",
+        "mysql:host={$app['db_host']};dbname={$app['db_name']}",
         $app['db_user'],
         $app['db_pass']
     );
