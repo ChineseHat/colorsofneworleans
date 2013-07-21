@@ -81,35 +81,56 @@ body
   img
     max-width: 100%
 
+
 #menu
   @extend %header-spacing
   @extend %row
+  display: table
+  width: 100%
   ul
-    +horizontal-list
+    display: table-row
+  li
+    display: table-cell
+    width: auto
   a
+    display: block
     font-size: 26px
+    text-align: center
+    padding: 10px
     +respond-to(mobile)
-      margin: 10px 2px
       font-size: 14px
     +respond-to(tablet)
-      margin: 10px 14px
     +respond-to(laptop)
-      margin: 10px 34px
     +respond-to(desktop)
-      margin: 10px 44px
 
     &.home
       color: $gray
+      &.active
+        background-color: $gray
     &.food
       color: $red
+      &.active
+        background-color: $red
     &.sports
       color: $gold
+      &.active
+        background-color: $gold
     &.music
       color: $blue
+      &.active
+        background-color: $blue
     &.festivals
       color: $purple
+      &.active
+        background-color: $purple
     &.community
       color: $orange
+      &.active
+        background-color: $orange
+
+    &.active
+      color: $white
+
 
 #tweets
   margin-top: 20px
