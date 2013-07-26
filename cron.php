@@ -1,51 +1,34 @@
 <?php
+
 require_once __DIR__ . '/vendor/autoload.php';
 
-$app = new Silex\Application(array(
-	'debug' => true
-));
-
 $config = require __DIR__ . '/config/config.php';
-foreach ($config as $key => $value)
-{
-	$app[$key] = $value;
-}
 
-//Load database stuff
-require_once __DIR__ . '/db.php'; 
+$app = new ColorsOfNewOrleans\Application($config);
 
-$app['twitter'] = $app->share(function() use ($app){
-  return new ZendService\Twitter\Twitter(array(
+$twitter_client = new \ZendService\Twitter\Twitter(array(
     'accessToken' => array(
-      'token' => $app['twitter_access_token'],
-      'secret' => $app['twitter_access_secret'],
-    ),
+        'token' => $app['twitter_access_token'],
+        'secret' => $app['twitter_access_secret'],
+        ),
     'oauth_options' => array(
         'username' => $app['twitter_username'],
         'consumerKey' => $app['twitter_consumerkey'],
         'consumerSecret' => $app['twitter_consumersecret'],
-    ),
+        ),
     'http_client_options' => array(
         'adapter' => '\Zend\Http\Client\Adapter\Curl',
-    ),
-    
-  ));
-});
+        ),
+));
 
-$tags = array(
-        'home' => '#nola',
-        'food' => '#nolafood',
-        'sports' => '#nolasaints',
-        'festivals' => '#mardigras',
-        'music' => '#nolamusic',
-        );
+$twitter_model = $app['twitter-model'];
 
+$tags = $twitter_model->getHashtags();
 
 foreach ($tags as $tag) {
-    $response = $app['twitter']->search->tweets($tag);
+    $response = $twitter_client->search->tweets($tag);
     $responses = $response->toValue()->statuses;
-
     foreach ($responses as $tweet) {
-        saveTweet($tweet);
+        $twitter_model->saveTweet($tweet);
     }
 }
